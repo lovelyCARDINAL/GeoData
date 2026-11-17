@@ -9,9 +9,6 @@ on:
 permissions:
   contents: write
 
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -35,6 +32,7 @@ jobs:
           go mod tidy
           go run .
           ls -lh geosite.dat geoip.dat dist/
+          echo "BUILD_TAG=$(TZ='Asia/Shanghai' date '+%Y%m%d')" >> $GITHUB_ENV
 
       - name: Publish to release branch
         run: |
@@ -52,8 +50,8 @@ jobs:
       - name: Publish GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: latest
-          name: "GeoData Latest"
+          tag_name: ${{ env.BUILD_TAG }}
+          name: "Released on ${{ env.BUILD_TAG }}"
           body: "Automated trimmed geosite.dat, geoip.dat & standalone YAML rule-providers."
           make_latest: true
           files: |
