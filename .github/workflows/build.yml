@@ -64,6 +64,7 @@ jobs:
             dist/rules/moegirl.yaml
             dist/rules/qiuwen.yaml
             dist/rules/wikimedia.yaml
+            dist/rules/pcdn-reject.yaml
 
       - name: Purge jsDelivr cache
         run: |

@@ -67,11 +67,21 @@ rule-providers:
     # GitHub Releases 备用直链：
     # url: "https://github.com/lovelyCARDINAL/GeoData/releases/latest/download/wikimedia.yaml"
 
+  pcdn-reject:
+    type: http
+    behavior: classical
+    interval: 86400
+    path: ./rule_provider/pcdn-reject.yaml
+    url: "https://fastly.jsdelivr.net/gh/lovelyCARDINAL/GeoData@release/rules/pcdn-reject.yaml"
+    # GitHub Releases 备用直链：
+    # url: "https://github.com/lovelyCARDINAL/GeoData/releases/latest/download/pcdn-reject.yaml"
+
 rules:
   # 请注意：moegirl务必放在 GEOSITE,category-wiki-cn,DIRECT 与 GEOSITE,cn,DIRECT 之前
   - "RULE-SET,moegirl,Proxy" #Proxy为你的代理策略组名称，自行替换
   - "RULE-SET,qiuwen,DIRECT"
   - "RULE-SET,wikimedia,Proxy"
+  - "RULE-SET,pcdn-reject,REJECT"
 ```
 
 ## 文件说明
