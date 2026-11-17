@@ -22,10 +22,14 @@ jobs:
           go-version: '1.22'
           cache: false
 
-      - name: Download upstream dat files
+      - name: Download upstream dat and rule files
         run: |
           curl -fsSL -o geosite.dat https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat
           curl -fsSL -o geoip.dat https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat
+          curl -fsSL -o upstream_custom_direct.yaml https://raw.githubusercontent.com/Aethersailor/Custom_OpenClash_Rules/main/rule/Custom_Direct_Classical.yaml
+          curl -fsSL -o upstream_custom_proxy.yaml https://raw.githubusercontent.com/Aethersailor/Custom_OpenClash_Rules/main/rule/Custom_Proxy_Classical.yaml
+          curl -fsSL -o upstream_steam_cdn.yaml https://raw.githubusercontent.com/Aethersailor/Custom_OpenClash_Rules/main/rule/Steam_CDN_Classical.yaml
+          curl -fsSL -o upstream_game_cdn.yaml https://raw.githubusercontent.com/Aethersailor/Custom_OpenClash_Rules/main/rule/Game_Download_CDN_Classical.yaml
 
       - name: Filter and repackage dat files
         run: |

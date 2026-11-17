@@ -27,6 +27,9 @@ geox-url:
 - `GEOSITE,cursor`
 - `GEOSITE,wikimedia`
 - `GEOSITE,hijack-reject`
+- `GEOSITE,custom-direct`
+- `GEOSITE,custom-proxy`
+- `GEOIP,game-cdn`
 
 > **首次切换提示**：若客户端本地已缓存了旧版 `geosite.dat`，首次启用上述自定义 `GEOSITE` 分类前，请先在客户端手动更新一次 Geo 数据库（或下载本仓库的 `geosite.dat` 覆盖到配置目录），否则预校验可能会因读取旧缓存而报错。
 
@@ -84,3 +87,10 @@ rules:
   - `rules/hijack-reject.yaml`：运营商劫持与国内恶意/流氓软件拦截规则
 - `main.go`：按清单过滤并重打包 `.dat` 的构建程序
 - `.github/workflows/build.yml`：每日定时自动构建并推送到 `release` 分支与 GitHub Releases 的工作流
+
+## 上游署名与协议
+
+本仓库采用 **GPL-3.0** 开源协议（与上游 `CC-BY-SA-4.0` 单向兼容），规则数据衍生并感谢以下上游项目：
+- [Loyalsoldier/v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat)（GPL-3.0）
+- [v2fly/domain-list-community](https://github.com/v2fly/domain-list-community)（MIT）
+- [Aethersailor/Custom_OpenClash_Rules](https://github.com/Aethersailor/Custom_OpenClash_Rules)（CC-BY-SA-4.0）
