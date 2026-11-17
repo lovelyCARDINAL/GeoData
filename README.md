@@ -44,5 +44,8 @@ geox-url:
   - `rules/grok.yaml`：Grok / x.ai 规则
   - `rules/museai.yaml`：MuseAI 规则
   - `rules/cursor.yaml`：Cursor / Anysphere 规则
+  - `rules/wikimedia.yaml`：Wikimedia / Wikipedia 扩展域名规则
+  - `rules/hijack-reject.yaml`：运营商劫持与国内恶意/流氓软件拦截规则
+  - `rules/qiuwen.yaml`：求闻百科等直连站点规则
 - `main.go`：按清单过滤并重打包 `.dat` 的构建程序
 - `.github/workflows/build.yml`：每日定时自动构建并推送到 `release` 分支的工作流
