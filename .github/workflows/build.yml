@@ -2,12 +2,15 @@ name: Build Trimmed GeoData
 
 on:
   schedule:
-    # 每天北京时间凌晨 02:00（UTC 18:00）自动构建
-    - cron: '0 18 * * *'
+    # 每天北京时间早上 07:00（UTC 23:00）自动构建
+    - cron: '0 23 * * *'
   workflow_dispatch:
 
 permissions:
   contents: write
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   build:
@@ -20,6 +23,7 @@ jobs:
         uses: actions/setup-go@v5
         with:
           go-version: '1.22'
+          cache: false
 
       - name: Download upstream dat files
         run: |
@@ -39,9 +43,22 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git checkout --orphan release
           git rm -rf . >/dev/null 2>&1 || true
-          mv dist/geosite.dat dist/geoip.dat .
-          mv dist/rules ./rules
-          rm -rf dist
+          cp dist/geosite.dat dist/geoip.dat .
+          cp -r dist/rules ./rules
           git add geosite.dat geoip.dat rules
           git commit -m "chore: update trimmed geodata ($(TZ='Asia/Shanghai' date '+%Y-%m-%d %H:%M:%S CST'))"
           git push -f origin release
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest
+          name: "GeoData Latest"
+          body: "Automated trimmed geosite.dat, geoip.dat & standalone YAML rule-providers."
+          make_latest: true
+          files: |
+            dist/geosite.dat
+            dist/geoip.dat
+            dist/rules/moegirl.yaml
+            dist/rules/qiuwen.yaml
+            dist/rules/wikimedia.yaml

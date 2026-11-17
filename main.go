@@ -84,6 +84,7 @@ func loadCustomGeoSites(rulesDir string) ([]*routercommon.GeoSite, error) {
 			return nil, err
 		}
 		if len(site.Domain) > 0 {
+			fmt.Printf("  + custom geosite %-16s %d domains\n", code, len(site.Domain))
 			sites = append(sites, site)
 		}
 	}
@@ -172,6 +173,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	fmt.Println("Custom geosite categories:")
 	customSites, err := loadCustomGeoSites("rules")
 	if err != nil {
 		panic(err)

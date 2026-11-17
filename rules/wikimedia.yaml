@@ -1,20 +1,37 @@
 payload:
+  - DOMAIN-SUFFIX,wikipedia.org
+  - DOMAIN-SUFFIX,wikipedia.com
+  - DOMAIN-SUFFIX,wikimedia.org
   - DOMAIN-SUFFIX,wmcloud.org
-  - DOMAIN-KEYWORD,wikimediafoundation
-  - DOMAIN-KEYWORD,wikitech
-  - DOMAIN-KEYWORD,wikimania
-  - DOMAIN-KEYWORD,wikiconference
   - DOMAIN-SUFFIX,toolforge.org
   - DOMAIN-SUFFIX,wmflabs.org
   - DOMAIN-SUFFIX,mediawiki.org
   - DOMAIN-SUFFIX,w.wiki
   - DOMAIN-SUFFIX,wikinews.org
   - DOMAIN-SUFFIX,wiktionary.org
-  - DOMAIN-SUFFIX,wikimedia.org
-  - DOMAIN-SUFFIX,wikipedia.com
   - DOMAIN-SUFFIX,wikisource.org
   - DOMAIN-SUFFIX,wikidata.org
   - DOMAIN-SUFFIX,wikiquote.org
   - DOMAIN-SUFFIX,wikivoyage.org
   - DOMAIN-SUFFIX,wikibooks.org
   - DOMAIN-SUFFIX,wikiversity.org
+  - DOMAIN-KEYWORD,wikimediafoundation
+  - DOMAIN-KEYWORD,wikitech
+  - DOMAIN-KEYWORD,wikimania
+  - DOMAIN-KEYWORD,wikiconference
+  - IP-CIDR,91.198.174.0/24,no-resolve
+  - IP-CIDR,103.102.166.0/24,no-resolve
+  - IP-CIDR,185.15.56.0/24,no-resolve
+  - IP-CIDR,185.15.57.0/24,no-resolve
+  - IP-CIDR,185.15.58.0/23,no-resolve
+  - IP-CIDR,185.71.138.0/24,no-resolve
+  - IP-CIDR,198.35.26.0/24,no-resolve
+  - IP-CIDR,198.35.27.0/24,no-resolve
+  - IP-CIDR,208.80.152.0/22,no-resolve
+  - IP-CIDR,208.80.154.0/23,no-resolve
+  - IP-CIDR6,2001:df2:e500::/48,no-resolve
+  - IP-CIDR6,2620:0:860::/48,no-resolve
+  - IP-CIDR6,2620:0:861::/48,no-resolve
+  - IP-CIDR6,2620:0:862::/48,no-resolve
+  - IP-CIDR6,2620:0:863::/48,no-resolve
+  - IP-CIDR6,2a02:ec80::/32,no-resolve
