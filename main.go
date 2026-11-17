@@ -69,7 +69,7 @@ func loadCustomGeoSites(rulesDir string) ([]*routercommon.GeoSite, error) {
 				})
 			case "DOMAIN-SUFFIX":
 				site.Domain = append(site.Domain, &routercommon.Domain{
-					Type:  routercommon.Domain_Domain,
+					Type:  routercommon.Domain_RootDomain,
 					Value: val,
 				})
 			case "DOMAIN-KEYWORD":
