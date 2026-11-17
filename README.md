@@ -8,7 +8,7 @@
 
 - 只保留 `geosite.txt` 与 `geoip.txt` 中列出的分类，大幅减小文件体积与设备内存占用。
 - 直接从上游编译好的 `.dat` 提取重打包，完整保留 `@cn`、`!cn` 等属性，无需自行维护 `include:` 依赖。
-- 同时提供独立的 `moegirl.yaml`（萌娘百科非直连子域名）与 `qiuwen.yaml`（求闻百科直连）规则文件，方便其他人直接在 `rule-providers` 中单独引用。
+- 同时提供独立的 `moegirl.yaml`（萌娘百科非直连子域名）、`qiuwen.yaml`（求闻百科直连）与 `wikimedia.yaml`（Wikimedia / Wikipedia）规则文件，方便他人直接在 `rule-providers` 中单独引用。
 
 ## 1. 在 Mihomo 中引用裁剪后的 GeoData
 
@@ -28,7 +28,9 @@ geox-url:
 - `GEOSITE,wikimedia`
 - `GEOSITE,hijack-reject`
 
-## 2. 单独调用萌娘百科、求闻百科与 Wikimedia 规则（`rule-providers`）
+> **首次切换提示**：若客户端本地已缓存了旧版 `geosite.dat`，首次启用上述自定义 `GEOSITE` 分类前，请先在客户端手动更新一次 Geo 数据库（或下载本仓库的 `geosite.dat` 覆盖到配置目录），否则预校验可能会因读取旧缓存而报错。
+
+## 2. 单独调用萌娘百科、求闻百科与维基百科规则（`rule-providers`）
 
 如果你不想更换自己的 `geosite.dat`，只想单独使用**萌娘百科**、**求闻百科**或 **Wikimedia（含 Wikipedia）** 规则，可按如下方式添加到配置中（推荐优先使用 `fastly.jsdelivr.net` CDN，也可替换为 Releases 直链）：
 
@@ -62,12 +64,9 @@ rule-providers:
     # url: "https://github.com/lovelyCARDINAL/GeoData/releases/latest/download/wikimedia.yaml"
 
 rules:
-  # 萌娘百科非直连域名（zh/mzh/en/ja/commons/library/api/mobile.moegirl.org.cn 及 moegirl.org）走代理
-  # 请注意：务必放在 GEOSITE,category-wiki-cn,DIRECT 与 GEOSITE,cn,DIRECT 之前
-  - "RULE-SET,moegirl,Proxy"
-  # 求闻百科相关域名走直连
+  # 请注意：moegirl务必放在 GEOSITE,category-wiki-cn,DIRECT 与 GEOSITE,cn,DIRECT 之前
+  - "RULE-SET,moegirl,Proxy" #Proxy为你的代理策略组名称，自行替换
   - "RULE-SET,qiuwen,DIRECT"
-  # Wikimedia / Wikipedia 域名及 IPv4/IPv6 段走代理
   - "RULE-SET,wikimedia,Proxy"
 ```
 
