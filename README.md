@@ -27,6 +27,7 @@ geox-url:
 - `GEOSITE,cursor`
 - `GEOSITE,wikimedia`
 - `GEOSITE,hijack-reject`
+- `GEOSITE,pcdn-reject`
 - `GEOSITE,custom-direct`
 - `GEOSITE,custom-proxy`
 - `GEOIP,game-cdn`
@@ -85,6 +86,7 @@ rules:
   - `rules/cursor.yaml`：Cursor / Anysphere 规则
   - `rules/wikimedia.yaml`：Wikimedia / Wikipedia 扩展域名规则
   - `rules/hijack-reject.yaml`：运营商劫持与国内恶意/流氓软件拦截规则
+  - `rules/pcdn-reject.yaml`：国内视频/直播/服务商 PCDN 拦截规则
 - `main.go`：按清单过滤并重打包 `.dat` 的构建程序
 - `.github/workflows/build.yml`：每日定时自动构建并推送到 `release` 分支与 GitHub Releases 的工作流
 
