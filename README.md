@@ -28,6 +28,7 @@ geox-url:
 - `GEOSITE,wikimedia`
 - `GEOSITE,hijack-reject`
 - `GEOSITE,pcdn-reject`
+- `GEOSITE,remote-desktop`
 - `GEOSITE,custom-direct`
 - `GEOSITE,custom-proxy`
 - `GEOIP,game-cdn`
