@@ -86,6 +86,16 @@ rule-providers:
     # GitHub Releases 备用直链：
     # url: "https://github.com/lovelyCARDINAL/GeoData/releases/latest/download/remote-desktop.yaml"
 
+  # 仅支持单独挂载（含 Win + macOS PROCESS-NAME 规则，保留 adobe.com 官网访问）
+  adobe-reject:
+    type: http
+    behavior: classical
+    interval: 86400
+    path: ./rule_provider/adobe-reject.yaml
+    url: "https://fastly.jsdelivr.net/gh/lovelyCARDINAL/GeoData@release/rules/adobe-reject.yaml"
+    # GitHub Releases 备用直链：
+    # url: "https://github.com/lovelyCARDINAL/GeoData/releases/latest/download/adobe-reject.yaml"
+
 rules:
   # 请注意：moegirl务必放在 GEOSITE,category-wiki-cn,DIRECT 与 GEOSITE,cn,DIRECT 之前
   - "RULE-SET,moegirl,Proxy" #Proxy为你的代理策略组名称，自行替换
@@ -93,6 +103,7 @@ rules:
   - "RULE-SET,wikimedia,Proxy"
   - "RULE-SET,pcdn-reject,REJECT"
   - "RULE-SET,remote-desktop,DIRECT"
+  - "RULE-SET,adobe-reject,REJECT"
 ```
 
 ## 文件说明

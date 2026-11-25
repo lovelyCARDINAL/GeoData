@@ -132,7 +132,8 @@ func loadCustomGeoSites(rulesDir string) ([]*routercommon.GeoSite, error) {
 
 	var sites []*routercommon.GeoSite
 	for _, p := range matches {
-		if strings.EqualFold(filepath.Base(p), "remote-desktop.yaml") {
+		base := filepath.Base(p)
+		if strings.EqualFold(base, "remote-desktop.yaml") || strings.EqualFold(base, "adobe-reject.yaml") {
 			continue
 		}
 		domains, _, err := parseClassicalYAML(p)

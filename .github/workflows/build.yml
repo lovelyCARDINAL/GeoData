@@ -66,9 +66,10 @@ jobs:
             dist/rules/wikimedia.yaml
             dist/rules/pcdn-reject.yaml
             dist/rules/remote-desktop.yaml
+            dist/rules/adobe-reject.yaml
 
       - name: Purge jsDelivr cache
         run: |
-          for path in geosite.dat geoip.dat rules/moegirl.yaml rules/qiuwen.yaml rules/wikimedia.yaml rules/grok.yaml rules/museai.yaml rules/cursor.yaml rules/hijack-reject.yaml rules/pcdn-reject.yaml rules/remote-desktop.yaml; do
+          for path in geosite.dat geoip.dat rules/moegirl.yaml rules/qiuwen.yaml rules/wikimedia.yaml rules/grok.yaml rules/museai.yaml rules/cursor.yaml rules/hijack-reject.yaml rules/pcdn-reject.yaml rules/remote-desktop.yaml rules/adobe-reject.yaml; do
             curl -fsSL "https://purge.jsdelivr.net/gh/lovelyCARDINAL/GeoData@release/${path}" || true
           done
