@@ -1,0 +1,109 @@
+# 注意：本文件包含 Windows / macOS 的 PROCESS-NAME 规则，不打包进 geosite.dat，只能作为独立 rule-provider（behavior: classical）单独挂载使用。
+# 保留 adobe.com 官网正常访问，仅拦截 Adobe 授权/正版检测/遥测域名及全系桌面端软件联网。
+payload:
+  # === Adobe 授权 / 激活 / 正版检测 / 遥测域名 ===
+  - DOMAIN-SUFFIX,adobe.io
+  - DOMAIN-SUFFIX,adobelogin.com
+  - DOMAIN-SUFFIX,adobegenuine.com
+  - DOMAIN-SUFFIX,licenses.adobe.com
+  - DOMAIN-SUFFIX,services.adobe.com
+  - DOMAIN-SUFFIX,activation.adobe.com
+  - DOMAIN,genuine.adobe.com
+  - DOMAIN,activate.adobe.com
+  - DOMAIN,practivate.adobe.com
+  - DOMAIN,ereg.adobe.com
+  - DOMAIN,wip.adobe.com
+  - DOMAIN,hlrcv.stage.adobe.com
+  - DOMAIN,lm.licenses.adobe.com
+  - DOMAIN,activate-sea.adobe.com
+  - DOMAIN,activate-sjc0.adobe.com
+  - DOMAIN,3ca52315.adobe.com
+  - DOMAIN,oobe.adobe.com
+  - DOMAIN,sstats.adobe.com
+  - DOMAIN-SUFFIX,omtrdc.net
+  - DOMAIN-SUFFIX,2o7.net
+  - DOMAIN-SUFFIX,demdex.net
+
+  # === Windows: Adobe 后台服务与正版检测进程 ===
+  - PROCESS-NAME,AGSService.exe
+  - PROCESS-NAME,AGMService.exe
+  - PROCESS-NAME,AdobeGCClient.exe
+  - PROCESS-NAME,AGCInvokerUtility.exe
+  - PROCESS-NAME,AdobeIPCBroker.exe
+  - PROCESS-NAME,AdobeUpdateService.exe
+  - PROCESS-NAME,AdobeARM.exe
+  - PROCESS-NAME,CCXProcess.exe
+  - PROCESS-NAME,CCLibrary.exe
+  - PROCESS-NAME,CoreSync.exe
+  - PROCESS-NAME,Creative Cloud.exe
+  - PROCESS-NAME,Creative Cloud Helper.exe
+  - PROCESS-NAME,Adobe Desktop Service.exe
+  - PROCESS-NAME,AdobeNotificationClient.exe
+  - PROCESS-NAME,AdobeCEFHelper.exe
+  - PROCESS-NAME,CRWindowsClientService.exe
+  - PROCESS-NAME,AdobeCollabSync.exe
+
+  # === Windows: Adobe 全家桶桌面应用 ===
+  - PROCESS-NAME,Photoshop.exe
+  - PROCESS-NAME,Illustrator.exe
+  - PROCESS-NAME,Adobe Premiere Pro.exe
+  - PROCESS-NAME,AfterFX.exe
+  - PROCESS-NAME,Lightroom.exe
+  - PROCESS-NAME,Lightroom Classic.exe
+  - PROCESS-NAME,InDesign.exe
+  - PROCESS-NAME,Acrobat.exe
+  - PROCESS-NAME,AcroRd32.exe
+  - PROCESS-NAME,Adobe Audition.exe
+  - PROCESS-NAME,Adobe Media Encoder.exe
+  - PROCESS-NAME,Animate.exe
+  - PROCESS-NAME,Dreamweaver.exe
+  - PROCESS-NAME,Bridge.exe
+  - PROCESS-NAME,Dimension.exe
+  - PROCESS-NAME,XD.exe
+  - PROCESS-NAME,Character Animator.exe
+  - PROCESS-NAME,InCopy.exe
+  - PROCESS-NAME,Prelude.exe
+  - PROCESS-NAME,Substance 3D Painter.exe
+  - PROCESS-NAME,Substance 3D Designer.exe
+  - PROCESS-NAME,Substance 3D Stager.exe
+  - PROCESS-NAME,Substance 3D Sampler.exe
+
+  # === macOS: Adobe 后台服务与正版检测进程 ===
+  - PROCESS-NAME,AGSService
+  - PROCESS-NAME,AGMService
+  - PROCESS-NAME,AdobeGCClient
+  - PROCESS-NAME,AGCInvokerUtility
+  - PROCESS-NAME,AdobeIPCBroker
+  - PROCESS-NAME,AdobeUpdateService
+  - PROCESS-NAME,CCXProcess
+  - PROCESS-NAME,CCLibrary
+  - PROCESS-NAME,CoreSync
+  - PROCESS-NAME,Creative Cloud
+  - PROCESS-NAME,Creative Cloud Helper
+  - PROCESS-NAME,Adobe Desktop Service
+  - PROCESS-NAME,AdobeNotificationClient
+  - PROCESS-NAME,AdobeCEFHelper
+  - PROCESS-NAME,Adobe Crash Reporter
+
+  # === macOS: Adobe 全家桶桌面应用 ===
+  - PROCESS-NAME,Adobe Photoshop
+  - PROCESS-NAME,Adobe Illustrator
+  - PROCESS-NAME,Adobe Premiere Pro
+  - PROCESS-NAME,Adobe After Effects
+  - PROCESS-NAME,Adobe Lightroom
+  - PROCESS-NAME,Adobe Lightroom Classic
+  - PROCESS-NAME,Adobe InDesign
+  - PROCESS-NAME,Adobe Acrobat
+  - PROCESS-NAME,Adobe Audition
+  - PROCESS-NAME,Adobe Media Encoder
+  - PROCESS-NAME,Adobe Animate
+  - PROCESS-NAME,Adobe Dreamweaver
+  - PROCESS-NAME,Adobe Bridge
+  - PROCESS-NAME,Adobe Dimension
+  - PROCESS-NAME,Adobe XD
+  - PROCESS-NAME,Adobe Character Animator
+  - PROCESS-NAME,Adobe InCopy
+  - PROCESS-NAME,Adobe Substance 3D Painter
+  - PROCESS-NAME,Adobe Substance 3D Designer
+  - PROCESS-NAME,Adobe Substance 3D Stager
+  - PROCESS-NAME,Adobe Substance 3D Sampler

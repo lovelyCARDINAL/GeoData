@@ -1,0 +1,28 @@
+# 注意：本文件包含 PROCESS-NAME 规则，不打包进 geosite.dat，只能作为独立 rule-provider（behavior: classical）单独挂载使用。
+payload:
+  - DOMAIN-SUFFIX,todesk.com
+  - DOMAIN-SUFFIX,todesk.net
+  - DOMAIN-SUFFIX,todesk.cn
+  - DOMAIN-SUFFIX,uuyuancheng.com
+  - DOMAIN-SUFFIX,uuyc.163.com
+  - DOMAIN-SUFFIX,uu.163.com
+  - PROCESS-NAME,ToDesk.exe
+  - PROCESS-NAME,ToDesk_Service.exe
+  - PROCESS-NAME,ToDesk_Session.exe
+  - PROCESS-NAME,ToDesk
+  - PROCESS-NAME,ToDesk_Service
+  - PROCESS-NAME,ToDesk_Session
+  - PROCESS-NAME,GameViewer.exe
+  - PROCESS-NAME,GameViewerServer.exe
+  - PROCESS-NAME,GameViewerService.exe
+  - PROCESS-NAME,GameViewerHealthd.exe
+  - PROCESS-NAME,GameViewerLauncher.exe
+  - PROCESS-NAME,uuyc-mux.exe
+  - PROCESS-NAME,uuyc-cli.exe
+  - PROCESS-NAME,GameViewer
+  - PROCESS-NAME,GameViewerServer
+  - PROCESS-NAME,GameViewerService
+  - PROCESS-NAME,GameViewerHealthd
+  - PROCESS-NAME,UU远程
+  - PROCESS-NAME,youqu.android.todesk
+  - PROCESS-NAME,com.netease.uuremote
